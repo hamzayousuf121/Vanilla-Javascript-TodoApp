@@ -12,7 +12,6 @@ addTodo.addEventListener('submit', (e) => {
     if (todo.value !== '') {
        
         li.setAttribute('class', 'list-group-item')
-        li.setAttribute('onclick', 'strike(this)')
         li.setAttribute('id', `todo${count}`)
         ++count;
 
@@ -20,7 +19,7 @@ addTodo.addEventListener('submit', (e) => {
         button.setAttribute('onclick', 'deleteTodo(this)')
         button.appendChild(document.createTextNode('Delete'))
 
-        editButton.setAttribute('class', 'btn btn-secondary right')
+        editButton.setAttribute('class', 'btn btn-default default right')
         editButton.setAttribute('onclick', 'editTodo(this)')
         editButton.setAttribute('data-toggle', 'modal')
         editButton.setAttribute('data-target', '#centralModalSuccess')
@@ -36,27 +35,22 @@ addTodo.addEventListener('submit', (e) => {
 })
 
 
-strike = (e) => {
-   e.style.textDecoration = 'line-through';
-}
-
 deleteAllTodo = () => {
     todoItems.innerHTML = '';
 }
-deleteTodo = e => {
+deleteTodo = (e) => {
     e.parentNode.remove();
 }
 
-   editTodo = e  => {
-    var updateTodoValue = document.getElementById('updateTodoValue')
+editTodo = (e = this) => {
 
-    if(e == 'update'){
-        console.log(updateTodoValue.value)
-    } else{
-        var nodeValue = e.parentNode.firstChild.nodeValue;
-        updateTodoValue.value = nodeValue;
-    }
-    
-    // console.log(nodeValue);
-    // updateTodoValue.value = nodeValue
+    var updateTodoValue = document.getElementById('updateTodoValue')
+    updateTodoValue.value = e.parentNode.firstChild.nodeValue 
+    localStorage.setItem('id', e.parentNode.id) ;
+}
+function updatetodo(){
+    var id = localStorage.getItem('id');
+    document.getElementById(id).firstChild.nodeValue = updateTodoValue.value;
+    document.getElementById(id).firstChild.nodeValue.style.color = 'green';
+    localStorage.removeItem('id')
 }
