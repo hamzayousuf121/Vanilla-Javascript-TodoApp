@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Home Page</title>
+  <title>Todo App</title>
   <!-- MDB icon -->
   <link rel="icon" href="img/favicon.ico" type="image/x-icon">
   <!-- Bootstrap core CSS -->
@@ -18,63 +18,77 @@
 
 <body>
 
-    <h1 class="text-center text-shadow default-color text-white">Todo App </h1>
-    <div class="container hoverable">
-        <div class="row">
-           
-          <div class="col-sm-6 hoverable">
-<!-- Default form login -->
-<form class="text-center border border-light p-5" >
-
-    <p class="h1 mb-4 text-default">Todo Web App </p>
-    <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="Enter Your Todo">
-
-    <button class="btn default-color text-white btn-block my-4" type="submit">Add Todo</button>
-
-</form>
-          </div>  
-          <div class="col-sm-6 hoverable">
-            <img src="./img/undraw_to_do_list_a49b.svg" alt="" class="img-fluid">
-
-          </div>  
-        </div>
-    
-      </div>
-</div >
-<h1 class="text-center text-shadow default-color text-white">Todo App </h1>
-<div class="container">
+  <h1 class="text-center text-shadow default-color text-white">Todo App </h1>
+  <div class="container hoverable">
     <div class="row">
-        <table class="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
+
+      <div class="col-sm-6 hoverable">
+        <!-- Default form login -->
+        <form class="text-center p-5" id="todoform">
+
+          <p class="h1 mb-4 text-default">Todo Web App </p>
+          <input type="text" id="todo" class="form-control mb-4" placeholder="Enter Your Todo">
+
+          <button class="btn default-color text-white btn-block my-4" type="submit">Add Todo</button>
+          <button class="btn danger-color text-white btn-block my-4" onclick="deleteAllTodo()" type="submit">Delete All Todo</button>
+        </form>
+      </div>
+      <div class="col-sm-6 hoverable">
+        <img src="./img/undraw_to_do_list_a49b.svg" alt="" class="img-fluid">
+
+      </div>
     </div>
-</div>
+
+  </div>
+  </div>
+  <br><br><br>
+  <h1 class="text-center text-shadow default-color text-white">Todo Items </h1>
+  <div class="container">
+    <div class="row">
+      <div class="offset-lg-2 col-lg-8 col-md-12 col-12 col-sm-12">
+      <ul class="list-group hoverable" id="todoList">
+      
+      </ul>
+    </div>
+    </div>
+  </div>
+
+  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#centralModalSuccess">Launch
+    modal
+ </button> -->
+ 
+  <!-- Central Modal Medium Success -->
+  <div class="modal fade" id="centralModalSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-notify modal-success" role="document">
+      <!--Content-->
+      <div class="modal-content">
+        <!--Header-->
+        <div class="modal-header">
+          <p class="heading lead">Edit Todo</p>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" class="white-text">&times;</span>
+          </button>
+        </div>
+ 
+        <!--Body-->
+        <div class="modal-body">
+          <div class="text-center">
+            <i class="fas fa-check fa-4x mb-3 animated rotateIn"></i>
+           <input type="text" id="updateTodoValue" class="form-control" placeholder="Update" />
+          </div>
+        </div>
+ 
+        <!--Footer-->
+        <div class="modal-footer justify-content-center">
+          <a type="button" class="btn btn-success" data-dismiss="modal" onclick="editTodo('update')">Update Item</a>
+          <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">Cancel</a>
+        </div>
+      </div>
+      <!--/.Content-->
+    </div>
+  </div>
+  <!-- Central Modal Medium Success-->
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <!-- Bootstrap tooltips -->
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
