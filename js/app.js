@@ -8,9 +8,9 @@ addTodo.addEventListener('submit', (e) => {
     var li = document.createElement('li')
     var button = document.createElement('button')
     var editButton = document.createElement('button')
-   
+
     if (todo.value !== '') {
-       
+
         li.setAttribute('class', 'list-group-item')
         li.setAttribute('id', `todo${count}`)
         ++count;
@@ -30,7 +30,7 @@ addTodo.addEventListener('submit', (e) => {
         li.appendChild(editButton)
         todoItems.appendChild(li)
         todo.value = '';
-        
+
     }
 })
 
@@ -45,10 +45,10 @@ deleteTodo = (e) => {
 editTodo = (e = this) => {
 
     var updateTodoValue = document.getElementById('updateTodoValue')
-    updateTodoValue.value = e.parentNode.firstChild.nodeValue 
-    localStorage.setItem('id', e.parentNode.id) ;
+    updateTodoValue.value = e.parentNode.firstChild.nodeValue
+    localStorage.setItem('id', e.parentNode.id);
 }
-function updatetodo(){
+function updatetodo() {
     var id = localStorage.getItem('id');
     document.getElementById(id).firstChild.nodeValue = updateTodoValue.value;
     document.getElementById(id).firstChild.nodeValue.style.color = 'green';

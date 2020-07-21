@@ -1,12 +1,12 @@
-#todoList{
-    margin-bottom:150px;
+#todoList {
+	margin-bottom: 150px;
 }
-.right{
-    float: right;
+.right {
+	float: right;
 }
-li{
-    font-size: 20px;
+li {
+	font-size: 20px;
 }
-.default{
-    background-color: #2bbbad !important;
+.default {
+	background-color: #2bbbad !important;
 }
