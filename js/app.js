@@ -1,6 +1,7 @@
 var addTodo = document.getElementById('todoform');
 var todoItems = document.getElementById('todoList');
 var todo = document.getElementById('todo');
+var todoHeading = document.getElementById('todoHeading')
 var count = 0;
 addTodo.addEventListener('submit', (e) => {
 
@@ -31,19 +32,21 @@ addTodo.addEventListener('submit', (e) => {
         todoItems.appendChild(li)
         todo.value = '';
 
+        todoHeading.style.display = 'block';
+
     }
 })
 
 
 deleteAllTodo = () => {
     todoItems.innerHTML = '';
+    todoHeading.style.display = 'none';
 }
 deleteTodo = (e) => {
     e.parentNode.remove();
 }
 
 editTodo = (e = this) => {
-
     var updateTodoValue = document.getElementById('updateTodoValue')
     updateTodoValue.value = e.parentNode.firstChild.nodeValue
     localStorage.setItem('id', e.parentNode.id);
